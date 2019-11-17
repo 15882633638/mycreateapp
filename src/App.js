@@ -27,6 +27,13 @@ class App extends React.Component{
       list:listnow
     })
   }
+  Add(index){
+    let listnow = this.state.list;
+    listnow.push(index);
+    this.setState({
+      list:listnow
+    })
+  }
   render(){
     const list = [123,234,57]
     return (
@@ -35,7 +42,7 @@ class App extends React.Component{
         hello world
         {/* <Home name1='吴颜冰' list = {list} age1={123} grete = {this.Ongrete.bind(this)}></Home>
         <Header content={this.state.content}></Header> */}
-        <List list = {this.state.list} delet={(index)=>{this.delet(index)}}></List>
+        <List list = {this.state.list} delet={(index)=>{this.delet(index)}} Add = {(index)=>{this.Add(index)}}></List>
       </h1>
     );
   }

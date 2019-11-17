@@ -19,6 +19,7 @@ export default class List  extends React.Component{
                     </li>
                 })}
                 </ul>
+                <button onClick={()=>{this.props.Add(1)}}>添加</button>
             </div>
         )
     }
