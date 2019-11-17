@@ -14,6 +14,9 @@ export default class Home extends React.Component{
             age:this.state.age+=3
         })
     }
+    getAge(){
+        this.props.grete(this.state.age)
+    } 
     render(){
         return (
         <div className='container'>
@@ -29,6 +32,7 @@ export default class Home extends React.Component{
             <button onClick= {()=>{
                 this.MakeOlder()
             }}>Make older</button>
+            <button onClick={this.getAge.bind(this)}>改变参数</button>
            
         </div>
         )
