@@ -3,11 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './componts/home'
 import Header from './componts/header'
+import List from './componts/list'
 class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      content:'这是传递进去的参数'
+      content:'这是传递进去的参数',
+      list:[1,2,3,4]
     }
   }
   Ongrete(age){
@@ -17,14 +19,23 @@ class App extends React.Component{
     })
 
   }
+  delet(index){
+    console.log(index)
+    let listnow = this.state.list;
+    listnow.splice(index,1);
+    this.setState({
+      list:listnow
+    })
+  }
   render(){
     const list = [123,234,57]
     return (
     
       <h1 className='box'>
         hello world
-        <Home name1='吴颜冰' list = {list} age1={123} grete = {this.Ongrete.bind(this)}></Home>
-        <Header content={this.state.content}></Header>
+        {/* <Home name1='吴颜冰' list = {list} age1={123} grete = {this.Ongrete.bind(this)}></Home>
+        <Header content={this.state.content}></Header> */}
+        <List list = {this.state.list} delet={(index)=>{this.delet(index)}}></List>
       </h1>
     );
   }
