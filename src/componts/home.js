@@ -20,7 +20,8 @@ export default class Home extends React.Component{
     render(){
         return (
         <div className='container'>
-            <h1>Home</h1>
+            Home
+            {/* <h1>Home</h1>
             <h1>your name is {this.props.name1}
             your age is {this.state.age}
             {
@@ -32,7 +33,7 @@ export default class Home extends React.Component{
             <button onClick= {()=>{
                 this.MakeOlder()
             }}>Make older</button>
-            <button onClick={this.getAge.bind(this)}>改变参数</button>
+            <button onClick={this.getAge.bind(this)}>改变参数</button> */}
            
         </div>
         )
