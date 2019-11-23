@@ -8,16 +8,32 @@ import {
 import Header from './header'
 import Home from './home'
 import Shps from './shps'
-export default class AppRouter extends React.Component {
-    constructor() {
-        super()
+import {connect} from 'react-redux'
+import {getPosts} from '../service/post_api'
+
+
+ class AppRouter extends React.Component {
+    constructor(props) {
+        super(props)
+        console.log(props)
+        
+    }
+    componentDidMount(){
+        this.props.dispatch(async function(dispatch){
+            const res = await getPosts();
+            dispatch({
+                type:'changedata',
+                payload:res.data
+            })
+            
+        })
     }
     render() {
         return (
             <Router>
                 <ul>
                     <li>
-                        <Link to='/'>首页</Link>
+                        <Link to='/'>首页{this.props.prop.post}</Link>
                     </li>
                     <li>
                         <Link to='/home'>home界面</Link>
@@ -35,3 +51,9 @@ export default class AppRouter extends React.Component {
         )
     }
 }
+const mapStateToProps = (state,ownProps)=>{
+    return{
+        prop:state
+    }
+}
+export default connect(mapStateToProps)(AppRouter) 
