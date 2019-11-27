@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Home from './componts/home'
-import Header from './componts/header'
+import Header from './componts/Header'
 import List from './componts/list'
 class App extends React.Component{
   constructor(){

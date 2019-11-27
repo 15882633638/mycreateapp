@@ -5,11 +5,13 @@ import {
     Link,
     BrowserRouter as Router
 } from 'react-router-dom'
-import Header from './header'
+import Header from './Header'
 import Home from './home'
 import Shps from './shps'
 import {connect} from 'react-redux'
-import {getPosts} from '../service/post_api'
+
+import {withRouter} from "react-router-dom";
+// import {getPosts} from '../service/post_api'
 
 
  class AppRouter extends React.Component {
@@ -19,14 +21,14 @@ import {getPosts} from '../service/post_api'
         
     }
     componentDidMount(){
-        this.props.dispatch(async function(dispatch){
-            const res = await getPosts();
-            dispatch({
-                type:'changedata',
-                payload:res.data
-            })
+        // this.props.dispatch(async function(dispatch){
+        //     const res = await getPosts();
+        //     dispatch({
+        //         type:'changedata',
+        //         payload:res.data
+        //     })
             
-        })
+        // })
     }
     render() {
         return (
